@@ -2,8 +2,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.1'
-# Use sqlite3 as the database for Active Record
-gem 'pg'
+gem 'mysql2'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -94,7 +93,7 @@ gem 'peek'
 gem 'peek-faraday'
 gem 'peek-git'
 gem 'peek-performance_bar'
-gem 'peek-pg'
+gem 'peek-mysql2'
 gem 'peek-redis'
 
 gem 'flipflop', '~> 2.3'

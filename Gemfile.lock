@@ -527,6 +527,7 @@ GEM
     multi_json (1.13.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
+    mysql2 (0.5.2)
     nest (3.1.1)
       redic
     net-http-persistent (3.0.0)
@@ -572,13 +573,13 @@ GEM
       peek
     peek-git (1.0.2)
       peek
-    peek-performance_bar (1.2.1)
-      peek (>= 0.1.0)
-    peek-pg (1.3.0)
+    peek-mysql2 (1.2.0)
       concurrent-ruby
       concurrent-ruby-ext
+      mysql2
       peek
-      pg
+    peek-performance_bar (1.2.1)
+      peek (>= 0.1.0)
     peek-redis (1.2.0)
       atomic (>= 1.0.0)
       peek
@@ -587,7 +588,6 @@ GEM
       atomic (>= 1.0.0)
       peek
       sidekiq
-    pg (0.21.0)
     posix-spawn (0.3.13)
     power_converter (0.1.2)
     powerpack (0.1.1)
@@ -926,14 +926,14 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   lograge
   mods (~> 2.1)
+  mysql2
   peek
   peek-faraday
   peek-git
+  peek-mysql2
   peek-performance_bar
-  peek-pg
   peek-redis
   peek-sidekiq
-  pg
   puma (~> 3.7)
   rack-test (= 0.7.0)
   rails (~> 5.1.1)
@@ -961,4 +961,4 @@ DEPENDENCIES
   zk
 
 BUNDLED WITH
-   1.16.6
+   1.17.1
