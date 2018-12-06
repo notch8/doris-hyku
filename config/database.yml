@@ -16,7 +16,7 @@ test:
 
 production:
   <<: *default
-  encoding: unicode
+  encoding: utf8mb4
   pool: 50
   database: <%= ENV['RDS_DB_NAME'] %>
   username: <%= ENV['RDS_USERNAME'] %>
