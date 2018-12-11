@@ -31,7 +31,12 @@ gem 'jbuilder', '~> 2.5'
 gem 'active-fedora', '>= 11.1.4'
 
 # Use Capistrano for deployment
-gem 'capistrano-rails', group: :development
+group :development do
+  gem "capistrano", "~> 3.10", require: false
+  gem "capistrano-rails", "~> 1.4", require: false
+  gem "capistrano-passenger", require: false
+  gem 'capistrano-dotenv-tasks', require: false
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -43,9 +43,9 @@ server '3.80.142.174', user: 'centos', roles: [:web, :app, :db, :resque_pool]
 #
 # Global options
 # --------------
- set :ssh_options, {
-       keys: %w(doris-services-keys)
-     }
+# set :ssh_options, {
+#       keys: %w(doris-services-keys)
+#     }
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
