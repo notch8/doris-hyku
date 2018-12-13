@@ -35,7 +35,7 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/syst
 
 after :finishing, :set_commit
 task :set_commit do
-  slug = git rev-parse HEAD`.strip
+  slug = `git rev-parse HEAD`.strip
   invoke 'config:set', "HEROKU_SLUG_COMMIT=#{slug}"
 end
 
