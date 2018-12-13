@@ -33,12 +33,6 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/syst
 # Default value for local_user is ENV['USER']
 # set :local_user, -> { `git config user.name`.chomp }
 
-after :finishing, :set_commit
-task :set_commit do
-  slug = `git rev-parse HEAD`.strip
-  invoke 'config:set', "HEROKU_SLUG_COMMIT=#{slug}"
-end
-
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 

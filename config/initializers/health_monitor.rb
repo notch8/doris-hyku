@@ -1,4 +1,4 @@
-ENV['SHA'] = ENV['HEROKU_SLUG_COMMIT'] || `git rev-parse HEAD`.strip
+ENV['SHA'] = ENV['HEROKU_SLUG_COMMIT'] || `head -n 1 /opt/doris-hyku/revisions.log`.strip
 
 HealthMonitor.configure do |config|
   config.environment_variables = {
