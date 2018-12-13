@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount HealthMonitor::Engine, at: '/'
 
   if Settings.multitenancy.enabled
     constraints host: Account.admin_host do
