@@ -21,14 +21,17 @@ class ApplicationController < ActionController::Base
   before_action :require_active_account!, if: :multitenant?
   before_action :set_account_specific_connections!
   skip_after_action :discard_flash_if_xhr
-
-  before_action :add_honeybadger_context
+  before_action :set_raven_context
 
   rescue_from Apartment::TenantNotFound do
     raise ActionController::RoutingError, 'Not Found'
   end
 
   private
+    def set_raven_context
+      Raven.user_context(id: session[:current_user_id]) # or anything else in session
+      Raven.extra_context(params: params.to_unsafe_h, url: request.url)
+    end
 
     def peek_enabled?
       can? :peek, Hyku::Application
@@ -66,10 +69,6 @@ class ApplicationController < ActionController::Base
       payload[:request_id] = request.uuid
       payload[:user_id] = current_user.id if current_user
       payload[:account_id] = current_account.cname if current_account
-    end
-
-    def add_honeybadger_context
-      Honeybadger.context(user_email: current_user.email) if current_user
     end
 
     def ssl_configured?

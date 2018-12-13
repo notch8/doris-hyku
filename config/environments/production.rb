@@ -56,7 +56,7 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
-  require 'active_job/queue_adapters/better_active_elastic_job_adapter'
+  #require 'active_job/queue_adapters/better_active_elastic_job_adapter'
   config.active_job.queue_adapter     = Settings.active_job.queue_adapter
   # config.active_job.queue_name_prefix = "hyku_#{Rails.env}"
 
