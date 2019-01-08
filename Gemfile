@@ -36,6 +36,7 @@ group :development do
   gem "capistrano-rails", "~> 1.4", require: false
   gem "capistrano-passenger", require: false
   gem 'capistrano-dotenv-tasks', require: false
+  gem 'pg'
 end
 
 group :development, :test do
