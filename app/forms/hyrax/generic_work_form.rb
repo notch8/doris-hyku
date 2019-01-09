@@ -10,7 +10,7 @@ module Hyrax
     self.required_fields = [:title, :identifier, :date_created, :digitized]
 
     def primary_terms
-      [:identifier, :title, :date_created, :digitized, :date_created, :date_certainty]
+      [:identifier, :title, :digitized, :date_created, :date_certainty]
     end
 
     def secondary_terms
