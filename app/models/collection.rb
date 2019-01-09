@@ -2,6 +2,7 @@
 class Collection < ActiveFedora::Base
   include ::Hyrax::CollectionBehavior
   # You can replace these metadata if they're not suitable
+  property :collection_number, predicate: ::RDF::URI("http://#{Settings.multitenancy.admin_host}/collection#collection_number")
   include Hyrax::BasicMetadata
   self.indexer = CollectionIndexer
 end
