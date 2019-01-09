@@ -17,5 +17,18 @@ module CommonMetadata
     property :publication_distribution_production_note, predicate: ::RDF::URI("http://#{Settings.multitenancy.admin_host}/generic_work#publication_distribution_production_note")
     property :immediate_source_of_acquisition, predicate: ::RDF::URI("http://#{Settings.multitenancy.admin_host}/generic_work#immediate_source_of_acquisition")
     property :copies_and_original, predicate: ::RDF::URI("http://#{Settings.multitenancy.admin_host}/generic_work#copies_and_original")
+    property :place, predicate: ::RDF::URI("http://#{Settings.multitenancy.admin_host}/place")
+    property :subject, predicate: ::RDF::URI("http://#{Settings.multitenancy.admin_host}/subject")
+    property :occupation, predicate: ::RDF::URI("http://#{Settings.multitenancy.admin_host}/occupation")
+    property :name, predicate: ::RDF::URI("http://#{Settings.multitenancy.admin_host}/name")
+    property :genre_form, predicate: ::RDF::URI("http://#{Settings.multitenancy.admin_host}/genre_form")
+    property :repository, predicate: ::RDF::URI("http://#{Settings.multitenancy.admin_host}/repository")
+    property :access_advisory, predicate: ::RDF::URI("http://#{Settings.multitenancy.admin_host}/access_advisory")
+    property :rights_advisory, predicate: ::RDF::URI("http://#{Settings.multitenancy.admin_host}/rights_advisory")
+    property :preferred_citation, predicate: ::RDF::URI("http://#{Settings.multitenancy.admin_host}/preferred_citation")
+    property :box, predicate: ::RDF::URI("http://#{Settings.multitenancy.admin_host}/box")
+    property :shelf, predicate: ::RDF::URI("http://#{Settings.multitenancy.admin_host}/shelf")
+    property :copy_negative, predicate: ::RDF::URI("http://#{Settings.multitenancy.admin_host}/copy_negative")
+    property :digitized, predicate: ::RDF::URI("http://#{Settings.multitenancy.admin_host}/digitzed")
   end
 end

@@ -3,6 +3,7 @@
 class Video < ActiveFedora::Base
   include ::Hyrax::WorkBehavior
   include HasRendering
+  include ::CommonMetadata
 
   property :extent, predicate: ::RDF::Vocab::DC.extent, multiple: true do |index|
     index.as :stored_searchable
