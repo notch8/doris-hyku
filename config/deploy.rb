@@ -27,7 +27,7 @@ set :passenger_restart_with_sudo, true
 # append :linked_files, "config/database.yml"
 
 # Default value for linked_dirs is []
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "tmp/uplaods"
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -40,3 +40,12 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/syst
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+after 'deploy:publishing', 'sidekiq:restart'
+
+namespace :sidekiq do
+  task :restart do
+    on roles(:all) do |host|
+      execute :sudo, 'systemctl restart sidekiq'
+    end
+  end
+end
