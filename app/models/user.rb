@@ -23,6 +23,10 @@ class User < ApplicationRecord
     email
   end
 
+  def is_superadmin
+    has_role? :superadmin
+  end
+
   def site_roles
     roles.site
   end
