@@ -49,4 +49,6 @@ class SolrDocument
   attribute :access_advisory, Solr::Array, solr_name('access_advisory')
   attribute :rights_advisory, Solr::Array, solr_name('rights_advisory')
   attribute :preferred_citation, Solr::Array, solr_name('preferred_citation')
+  attribute :digitized, Solr::String, solr_name('digitized', Solrizer::Descriptor.new(:boolean, :stored, :indexed))
+
 end
