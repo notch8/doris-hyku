@@ -29,6 +29,6 @@ module CommonMetadata
     property :box, predicate: ::RDF::URI("http://#{Settings.multitenancy.admin_host}/box")
     property :shelf, predicate: ::RDF::URI("http://#{Settings.multitenancy.admin_host}/shelf")
     property :copy_negative, predicate: ::RDF::URI("http://#{Settings.multitenancy.admin_host}/copy_negative")
-    property :digitized, predicate: ::RDF::URI("http://#{Settings.multitenancy.admin_host}/digitzed")
+    property :digitized, predicate: ::RDF::URI("http://#{Settings.multitenancy.admin_host}/digitzed"), multiple: false
   end
 end
