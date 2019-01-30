@@ -1,9 +1,9 @@
 # Generated via
-#  `rails generate hyrax:work Image`
+#  `rails generate hyrax:work Video`
 module Hyrax
-  class ImageForm < Hyrax::Forms::WorkForm
+  class VideoForm < Hyrax::Forms::WorkForm
     include Hyrax::FormTerms
-    self.model_class = ::Image
+    self.model_class = ::Video
     include HydraEditor::Form::Permissions
     self.terms = [:title, :creator, :creator_role, :added_creator, :added_creator_role, :contributor, :description, :keyword, :license, :rights_statement, :publisher, :date_created, :date_certainty, :subject, :language, :identifier, :based_near, :related_url, :representative_id, :thumbnail_id, :rendering_ids, :files, :visibility_during_embargo, :embargo_release_date, :visibility_after_embargo, :visibility_during_lease, :lease_expiration_date, :visibility_after_lease, :visibility, :ordered_member_ids, :source, :material_type, :form, :color, :dimensions, :physical_description_note, :source_of_description_note, :caption_note, :attribution_note, :publication_distribution_production_note, :immediate_source_of_acquisition, :copies_and_original, :place, :subject, :occupation, :name, :genre_form, :repository, :access_advisory, :rights_advisory, :preferred_citation, :box, :shelf, :copy_negative, :digitized, :extent, :resource_type, :rendering_ids, :in_works_ids, :member_of_collection_ids, :admin_set_id]
 
