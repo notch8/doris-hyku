@@ -40,7 +40,7 @@ Hyrax.config do |config|
   # config.persistent_hostpath = 'http://localhost/files/'
 
   # If you have ffmpeg installed and want to transcode audio and video uncomment this line
-  config.enable_ffmpeg = false
+  config.enable_ffmpeg = true
 
   # Using the database noid minter was too slow when ingesting 1000s of objects (8s per transaction),
   # so switching to UUIDs for the MVP.
@@ -59,10 +59,10 @@ Hyrax.config do |config|
   config.fits_path = Settings.fits_path
 
   # Specify the path to the file derivatives creation tool:
-  # config.libreoffice_path = "soffice"
+  config.libreoffice_path = "soffice"
 
   # Stream realtime notifications to users in the browser
-  # config.realtime_notifications = true
+  config.realtime_notifications = Rails.env.production?
 
   # Which RDF term should be used to relate objects to an admin set?
   # If this is a new repository, you may want to set a custom predicate term here to

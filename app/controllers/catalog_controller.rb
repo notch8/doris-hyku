@@ -207,7 +207,7 @@ class CatalogController < ApplicationController
       field.solr_parameters = {
         "spellcheck.dictionary": "date_created"
       }
-      solr_name = solr_name("created", :stored_searchable)
+      solr_name = solr_name("date_created", :stored_searchable)
       field.solr_local_parameters = {
         qf: solr_name,
         pf: solr_name
@@ -264,7 +264,7 @@ class CatalogController < ApplicationController
       field.solr_parameters = {
         "spellcheck.dictionary": "identifier"
       }
-      solr_name = solr_name("id", :stored_searchable)
+      solr_name = solr_name("identifier", :stored_searchable)
       field.solr_local_parameters = {
         qf: solr_name,
         pf: solr_name

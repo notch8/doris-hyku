@@ -12,6 +12,9 @@ en:
           language_sim: Language
           publisher_sim: Publisher
           subject_sim: Subject
+          date_created_sim: Date
+          identifier_sim: Identifier
+
         index:
           based_near_label_tesim: Location
           contributor_tesim: Contributor
