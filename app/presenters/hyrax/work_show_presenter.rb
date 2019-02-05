@@ -40,7 +40,7 @@ module Hyrax
              :creator, :contributor, :subject, :publisher, :language, :embargo_release_date,
              :lease_expiration_date, :license, :source, :rights_statement, :thumbnail_id, :representative_id,
              :rendering_ids, :member_of_collection_ids,
-             :place, :subject, :occupation, :name, :genre_form,
+             :place, :occupation, :name, :genre_form,
              :repository, :access_advisory, :rights_advisory, :preferred_citation,
              :box, :shelf, :copy_negative, :digitized, :date_certainty,
              :material_type, :form, :color, :dimensions, :physical_description_note, :source_of_description_note,
