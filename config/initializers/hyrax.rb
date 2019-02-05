@@ -33,8 +33,9 @@ Hyrax.config do |config|
   # config.citations = false
 
   # Where to store tempfiles, leave blank for the system temp directory (e.g. /tmp)
-  # config.temp_file_base = '/home/developer1'
-
+  if Rails.env.production?
+    config.temp_file_base = '/opt/doris-hyku/tmp'
+  end
   # Specify the form of hostpath to be used in Endnote exports
   # config.persistent_hostpath = 'http://localhost/files/'
 
