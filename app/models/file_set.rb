@@ -16,7 +16,8 @@ class FileSet < ActiveFedora::Base
 
   # clean out RIIF cache when the file changes
   def clear_cache
-   FileUtils.rm_rf(Rails.root.join('tmp', 'network_files', '*')) 
+    FileUtils.rm_rf(Rails.root.join('tmp', 'network_files', '*'))
+    FileUtils.rm_rf(Rails.root.join('tmp', 'cache', '*'))
   end
 
   private
