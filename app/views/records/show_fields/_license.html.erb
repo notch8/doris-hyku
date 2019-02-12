@@ -1,4 +1,7 @@
 <% service = Hyrax::LicenseService.new %>
 <% record.license.each do |r| %>
-  <%= link_to_field('license', r, service.label(r)) %> <%= iconify_auto_link(r, false) %><br />
+  <%= link_to r do %>
+    <%= service.label(r) %>
+    <span class='glyphicon glyphicon-new-window'></span>
+  <% end %> 
 <% end %>
