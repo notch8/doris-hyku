@@ -2,6 +2,7 @@ module Hyrax
   module WithEvents
     def stream
       ## New code, set redis instance for writters
+      ::RedisEndpoint.reset!
       Nest.new(event_class, Hyrax::RedisEventStore.instance)[to_param]
     end
 
