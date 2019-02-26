@@ -27,7 +27,7 @@ set :passenger_restart_with_sudo, true
 # append :linked_files, "config/database.yml"
 
 # Default value for linked_dirs is []
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "tmp/uploads"
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "tmp/uploads", "ops/Backup"
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -46,6 +46,17 @@ namespace :sidekiq do
   task :restart do
     on roles(:all) do |host|
       execute :sudo, 'systemctl restart sidekiq'
+    end
+  end
+end
+
+namespace :backup do
+  task :setup do
+    on roles(:all) do |host|
+      execute :sudo, 'gem install backup -v5.0.0.beta.2'
+      execute :sudo, 'gem install whenever'
+      execute 'cp ops/backup.rb ./ops/Backup/config.rb'
+      execute 'whenver --update-crontab'
     end
   end
 end

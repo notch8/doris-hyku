@@ -127,3 +127,4 @@ gem 'secure_headers'
 
 gem 'sentry-raven'
 gem 'health-monitor-rails', git: 'https://github.com/notch8/health-monitor-rails.git'
+gem 'whenever'
