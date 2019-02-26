@@ -1,3 +1,8 @@
+ActiveSupport::Reloader.to_prepare do
+  Hyrax::CurationConcern.actor_factory.delete Hyrax::Actors::TransactionalRequest
+end
+
+
 Hyrax.config do |config|
   config.register_curation_concern :generic_work
   # Injected via `rails g hyrax:work Image`
