@@ -18,7 +18,7 @@ require 'i18n/debug' if ENV['I18N_DEBUG']
 
 RSpec.configure do |config|
   config.before(:suite) do
-    WebMock.disable_net_connect!(allow_localhost: true, allow: 'hyku-carrierwave-test.s3.amazonaws.com')
+    WebMock.disable_net_connect!(allow_localhost: true, allow: /(hyku-carrierwave-test.s3.amazonaws.com|fcrepo:8080|solr:8983).*/)
   end
 
   # rspec-expectations config goes here. You can use an alternate
