@@ -2,6 +2,7 @@
 #  `rails generate hyrax:work Image`
 class Image < ActiveFedora::Base
   include ::Hyrax::WorkBehavior
+  include ::CommonMetadata
 
   property :extent, predicate: ::RDF::Vocab::DC.extent, multiple: true do |index|
     index.as :stored_searchable

@@ -1,0 +1,4 @@
+<% val = nil %>
+<% val = ['Yes', true] if f.object.try(:model).try(:[],key).try(:first) == 'Yes' %>
+<% val = ['No', false] if f.object.try(:model).try(:[], key).try(:first) == 'No' %>
+<%= f.input key, as: :radio_buttons, collection: [ ['Yes', 'Yes'], ['No', 'No'] ], checked: val %>

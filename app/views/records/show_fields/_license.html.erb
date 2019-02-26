@@ -1,0 +1,7 @@
+<% service = Hyrax::LicenseService.new %>
+<% record.license.each do |r| %>
+  <%= link_to r do %>
+    <%= service.label(r) %>
+    <span class='glyphicon glyphicon-new-window'></span>
+  <% end %> 
+<% end %>

@@ -1,4 +1,11 @@
+require 'sidekiq/web'
+Sidekiq::Web.set :session_secret, Rails.application.secrets[:secret_key_base]
+
 Rails.application.routes.draw do
+  mount HealthMonitor::Engine, at: '/'
+  authenticate :user, lambda { |u| u.is_superadmin } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 
   mount Riiif::Engine => 'images', as: :riiif if Hyrax.config.iiif_image_server?
   

@@ -12,11 +12,14 @@ en:
           language_sim: Language
           publisher_sim: Publisher
           subject_sim: Subject
+          date_created_sim: Date
+          identifier_sim: Identifier
+
         index:
           based_near_label_tesim: Location
           contributor_tesim: Contributor
           creator_tesim: Creator
-          date_created_tesim: Date Created
+          date_created_tesim: Date
           date_modified_dtsi: Date Modified
           date_uploaded_dtsi: Date Uploaded
           description_tesim: Description
@@ -32,7 +35,7 @@ en:
           based_near_label_tesim: Location
           contributor_tesim: Contributor
           creator_tesim: Creator
-          date_created_tesim: Date Created
+          date_created_tesim: Date
           date_modified_dtsi: Date Modified
           date_uploaded_dtsi: Date Uploaded
           description_tesim: Description

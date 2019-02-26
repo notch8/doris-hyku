@@ -1,14 +1,40 @@
+<%= presenter.attribute_to_html(:identifier, render_as: :faceted) %>
 <%= presenter.attribute_to_html(:creator, render_as: :faceted) %>
+<%= presenter.attribute_to_html(:creator_role, render_as: :faceted) %>
+<%= presenter.attribute_to_html(:added_creator, render_as: :faceted) %>
+<%= presenter.attribute_to_html(:added_creator_role, render_as: :faceted) %>
 <%= presenter.attribute_to_html(:contributor, render_as: :faceted) %>
 <%= presenter.attribute_to_html(:subject, render_as: :faceted) %>
 <%= presenter.attribute_to_html(:publisher, render_as: :faceted) %>
 <%= presenter.attribute_to_html(:language, render_as: :faceted) %>
-<%= presenter.attribute_to_html(:identifier, render_as: :linked, search_field: 'identifier_tesim') %>
+<%= presenter.attribute_to_html(:date_created, label: 'Date', render_as: :faceted) %>
+<%= presenter.attribute_to_html(:date_certainty) %>
 <%= presenter.attribute_to_html(:keyword, render_as: :faceted) %>
-<%= presenter.attribute_to_html(:date_created, render_as: :linked, search_field: 'date_created_tesim') %>
+
+<%= presenter.attribute_to_html(:material_type) %>
+<%= presenter.attribute_to_html(:form) %>
+<%= presenter.attribute_to_html(:color) %>
+<%= presenter.attribute_to_html(:dimensions) %>
+<%= presenter.attribute_to_html(:physical_description_note) %>
+<%= presenter.attribute_to_html(:source_of_description_note) %>
+<%= presenter.attribute_to_html(:caption_note) %>
+<%= presenter.attribute_to_html(:attribution_note) %>
+<%= presenter.attribute_to_html(:publication_distribution_production_note) %>
+<%= presenter.attribute_to_html(:immediate_source_of_acquisition) %>
+<%= presenter.attribute_to_html(:copies_and_original ) %>
+
 <%= presenter.attribute_to_html(:based_near_label) %>
 <%= presenter.attribute_to_html(:related_url, render_as: :external_link) %>
 <%= presenter.attribute_to_html(:resource_type, render_as: :faceted) %>
 <%= presenter.attribute_to_html(:source) %>
 <%= presenter.attribute_to_html(:rights_statement) %>
 <%= presenter.attribute_to_html(:extent) %>
+
+<%= presenter.attribute_to_html(:place) %>
+<%= presenter.attribute_to_html(:occupation) %>
+<%= presenter.attribute_to_html(:name) %>
+<%= presenter.attribute_to_html(:genre_form) %>
+<%= presenter.attribute_to_html(:repository) %>
+<%= presenter.attribute_to_html(:access_advisory) %>
+<%= presenter.attribute_to_html(:rights_advisory) %>
+<%= presenter.attribute_to_html(:preferred_citation) %>

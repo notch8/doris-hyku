@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/notch8/health-monitor-rails.git
+  revision: a97ccc65372fe55e1ff4c3e301597cc758f9f40c
+  specs:
+    health-monitor-rails (8.4.0)
+      rails (>= 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -63,6 +70,8 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    airbrussh (1.3.1)
+      sshkit (>= 1.6.1, != 1.7.0)
     almond-rails (0.1.0)
       rails (>= 4.2, < 6)
     apartment (1.2.0)
@@ -132,6 +141,21 @@ GEM
     builder (3.2.3)
     byebug (9.0.6)
     cancancan (1.17.0)
+    capistrano (3.11.0)
+      airbrussh (>= 1.0.0)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (>= 1.9.0)
+    capistrano-bundler (1.4.0)
+      capistrano (~> 3.1)
+      sshkit (~> 1.2)
+    capistrano-dotenv-tasks (0.1.5)
+      capistrano (~> 3.0)
+    capistrano-passenger (0.2.0)
+      capistrano (~> 3.0)
+    capistrano-rails (1.4.0)
+      capistrano (~> 3.1)
+      capistrano-bundler (~> 1.1)
     capybara (2.14.3)
       addressable
       mime-types (>= 1.16)
@@ -195,6 +219,10 @@ GEM
       devise (>= 4.0.0)
     diff-lcs (1.3)
     docile (1.1.5)
+    dotenv (2.5.0)
+    dotenv-rails (2.5.0)
+      dotenv (= 2.5.0)
+      railties (>= 3.2, < 6.0)
     dropbox-sdk (1.6.5)
       json
     dry-configurable (0.7.0)
@@ -290,7 +318,6 @@ GEM
     hashdiff (0.3.4)
     highline (1.7.8)
     hiredis (0.6.1)
-    honeybadger (3.1.2)
     htmlentities (4.3.4)
     httmultiparty (0.3.16)
       httparty (>= 0.7.3)
@@ -525,10 +552,14 @@ GEM
     multi_json (1.13.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
+    mysql2 (0.5.2)
     nest (3.1.1)
       redic
     net-http-persistent (3.0.0)
       connection_pool (~> 2.2)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (5.0.2)
     nio4r (2.3.1)
     noid (0.9.0)
     noid-rails (3.0.0)
@@ -746,6 +777,8 @@ GEM
     selenium-webdriver (3.4.2)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
+    sentry-raven (2.7.4)
+      faraday (>= 0.7.6, < 1.0)
     shex (0.5.2)
       ebnf (~> 1.1)
       json-ld (>= 2.2, < 4.0)
@@ -815,6 +848,9 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sshkit (1.18.0)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
     stomp (1.4.4)
     sxp (1.0.1)
       rdf (>= 2.2, < 4.0)
@@ -874,6 +910,10 @@ DEPENDENCIES
   apartment
   blacklight (~> 6.7)
   byebug
+  capistrano (~> 3.10)
+  capistrano-dotenv-tasks
+  capistrano-passenger
+  capistrano-rails (~> 1.4)
   capybara
   carrierwave-aws
   chromedriver-helper
@@ -885,10 +925,12 @@ DEPENDENCIES
   devise-guests (~> 0.3)
   devise-i18n
   devise_invitable (~> 1.6)
+  dotenv-rails
+  ed25519 (< 2.0.0)
   factory_bot_rails
   fcrepo_wrapper (~> 0.4)
   flipflop (~> 2.3)
-  honeybadger (~> 3.0)
+  health-monitor-rails!
   hyrax (~> 2.3.0)
   i18n-debug
   i18n-tasks
@@ -898,6 +940,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   lograge
   mods (~> 2.4)
+  mysql2
   pg
   puma (~> 3.7)
   rack-test (= 0.7.0)
@@ -914,6 +957,7 @@ DEPENDENCIES
   scss_lint
   secure_headers
   selenium-webdriver
+  sentry-raven
   sidekiq
   simplecov
   solr_wrapper (~> 2.0)

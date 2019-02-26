@@ -1,0 +1,43 @@
+id,type,identifier,title,digitized,creator,creator_role,added_creator,added_creator_role,date_created,date_certainty,material_type,form,color,dimensions,physical_description_note,source_of_description_note,caption_note,attribution_note,publication_distribution_production_note,immediate_source_of_acquisition,copies_and_original,place,subject,occupation,name,genre_form,repository,access_advisory,rights_advisory,preferred_citation,box,shelf,copy_negative,keyword,license,rights_statement,file,collection_id,collection_title,collection_accession_number
+
+id - Existing work id, specify only if updating an exisitng record
+type - GenericWork or Image
+identifier - as in work form
+title
+digitized - must be either "Yes" or "No", may only be singular
+creator
+creator_role
+added_creator
+added_creator_role
+date_created
+date_certainty
+material_type
+form
+color
+dimensions
+physical_description_note
+source_of_description_note
+caption_note
+attribution_note
+publication_distribution_production_note
+immediate_source_of_acquisition
+copies_and_original
+place
+subject
+occupation
+name
+genre_form
+repository
+access_advisory
+rights_advisory
+preferred_citation
+box
+shelf
+copy_negative
+keyword
+license
+rights_statement
+file - path to file, should be local like "myfile.png" or "path/to/myfile.png"
+collection_id - the id of an existing collection, do not specify both this and title
+collection_title - the title of a new collection to create, skip if using id
+collection_accession_number - the accession number of a collection, skip if using id

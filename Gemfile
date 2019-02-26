@@ -2,8 +2,9 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.1'
-# Use sqlite3 as the database for Active Record
-gem 'pg'
+gem 'mysql2'
+gem 'dotenv-rails'
+gem 'ed25519', '< 2.0.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -30,7 +31,13 @@ gem 'jbuilder', '~> 2.5'
 gem 'active-fedora', '>= 11.1.4'
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+group :development do
+  gem "capistrano", "~> 3.10", require: false
+  gem "capistrano-rails", "~> 1.4", require: false
+  gem "capistrano-passenger", require: false
+  gem 'capistrano-dotenv-tasks', require: false
+  gem 'pg'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -97,9 +104,7 @@ gem 'zk'
 
 gem 'mods', '~> 2.4'
 
-group :aws, :test do
-  gem 'carrierwave-aws'
-end
+gem 'carrierwave-aws'
 
 group :aws do
   gem 'active_elastic_job', '~> 2.0'
@@ -109,6 +114,7 @@ gem 'sidekiq'
 
 gem 'secure_headers'
 
-gem 'honeybadger', '~> 3.0'
+gem 'sentry-raven'
 
 gem 'riiif', '~> 1.1'
+gem 'health-monitor-rails', git: 'https://github.com/notch8/health-monitor-rails.git'

@@ -28,6 +28,12 @@ en:
         tenant: Tenant UUID
       add_user_to_group:
         user_ids: User ID
+      defaults:
+        creator: Creator Name (Main)
+        creator_role: Creator Role (Main)
+        added_creator: Creator Name (Added)
+        added_creator_role: Creator Role (Added)
+        date_created: Date
       group_search:
         q: Search
       hyku_group:

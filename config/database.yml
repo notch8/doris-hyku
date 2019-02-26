@@ -1,7 +1,8 @@
 default: &default
-  adapter: postgresql
+  adapter: mysql2
   pool: 5
   timeout: 5000
+  username: root
 
 development:
   <<: *default
@@ -16,10 +17,10 @@ test:
 
 production:
   <<: *default
-  encoding: unicode
+  encoding: utf8mb4
   pool: 50
-  database: <%= ENV['RDS_DB_NAME'] %>
-  username: <%= ENV['RDS_USERNAME'] %>
-  password: <%= ENV['RDS_PASSWORD'] %>
-  host: <%= ENV['RDS_HOSTNAME'] %>
-  port: <%= ENV['RDS_PORT'] %>
+  database: <%= ENV['MYSQL_DATABASE'] %>
+  username: <%= ENV['MYSQL_USERNAME'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
+  host: <%= ENV['MYSQL_HOSTNAME'] %>
+  port: <%= ENV['MYSQL_PORT'] %>
