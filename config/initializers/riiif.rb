@@ -27,11 +27,32 @@ Riiif::Engine.config.cache_duration_in_days = 365
 
 
 Riiif::ImagemagickCommandFactory.class_eval do
+  # def build
+  #   [external_command, crop, size, rotation, colorspace, quality, watermark, sampling, metadata, output].join
+  # end
+
+  # def watermark
+  #   [' -font Arial -pointsize 24',
+  #    '-draw "gravity center',
+  #    'fill black  text 0,12 \'Copyright\'',
+  #    'fill white  text 1,11 \'Copyright\'"'
+  #   ].join(' ')
+  # end
+  def command
+    Rails.logger.debug "================ command"
+
+    [external_command, crop, size, rotation, colorspace, quality, sampling, metadata, output, watermark].join
+  end
+
   def build
+    Rails.logger.debug "================ build"
+
     [external_command, crop, size, rotation, colorspace, quality, sampling, metadata, output, watermark].join
   end
 
   def watermark
+    Rails.logger.debug "================ watermark"
     " | composite -watermark 80 -tile #{Rails.root.join('app/assets/images/watermark.png')}  - #{transformation.format}:-"
   end
+
 end

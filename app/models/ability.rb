@@ -40,4 +40,13 @@ class Ability
   def superadmin?
     current_user.has_role? :superadmin
   end
+
+  # Override this to remove abliity for public files to be downloaded
+  # by non-users
+  def test_download(id)
+    Rails.logger.debug("[CANCAN] DORIS Checking download permissions for user: #{current_user.user_key} with groups: #{user_groups.inspect}")
+    return false if user_groups == ["public"]
+    group_intersection = user_groups & download_groups(id)
+    !group_intersection.empty? || download_users(id).include?(current_user.user_key)
+  end
 end
