@@ -1,0 +1,7 @@
+<!-- updated from hyrax because contributor link was not a facet in base hyrax -->
+<% record.contributor.each do |contributor| %>
+  <span itemprop="contributor" itemscope itemtype="http://schema.org/Person">
+    <span itemprop="name"><%= link_to_facet(contributor, ActiveFedora.index_field_mapper.solr_name("contributor", :facetable)) %></span>
+  </span>
+  <br />
+<% end %>
