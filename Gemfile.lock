@@ -264,6 +264,7 @@ GEM
     ebnf (1.1.2)
       rdf (>= 2.2, < 4.0)
       sxp (~> 1.0)
+    ed25519 (1.2.4)
     edtf (3.0.4)
       activesupport (>= 3.0, < 6.0)
     equivalent-xml (0.6.0)

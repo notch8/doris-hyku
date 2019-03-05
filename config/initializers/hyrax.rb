@@ -143,7 +143,7 @@ Hyrax.config do |config|
   # config.working_path = File.join(Rails.root, 'tmp', 'uploads')
 
   # Specify whether the media display partial should render a download link
-  # config.display_media_download_link = true
+  config.display_media_download_link = false
 
   # Options to control the file uploader
   # config.uploader = {
