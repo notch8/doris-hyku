@@ -200,3 +200,8 @@ footer.navbar {
     color: $brand-danger;
   }
 }
+
+// Force background color to prevent odd shadow style
+.js-group-user-search__query {
+  background-color: white !important;
+}
