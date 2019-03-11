@@ -8,7 +8,7 @@ Hydra::Derivatives::Processors::Image.class_eval do
     xfrm.quality(quality.to_s) if quality
     logo = MiniMagick::Image.open(Rails.root.join('app/assets/images/watermark.png'))
     if xfrm.width < 650
-      logo.resize("#{xfrm.width}x#{xfrm.height}")
+      logo.resize("#{xfrm.width/2}")
     end
     xfrm = xfrm.composite(logo) do |c|
       c.watermark '10'
