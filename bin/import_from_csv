@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-
 def validate_hostname!(hostname)
   return if hostname
   usage
@@ -32,7 +31,7 @@ def main(hostname, csv_file, files_directory)
   validate_files_directory!(files_directory)
   load_rails
 
-  AccountElevator.switch!(hostname)
+  AccountElevator.switch!(hostname) unless hostname == 'public' # single tenant version
   size = Importer::CSVImporter.new(csv_file, files_directory).import_all
 
   puts "Imported #{size} records."

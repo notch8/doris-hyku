@@ -48,7 +48,7 @@ module Importer
       def validate_header_pairs(row)
         errors = []
         row.each_with_index do |header, i|
-          next if header == 'resource_type'
+          next if header == 'resource_type' || header == 'material_type'
           next unless header.match(type_header_pattern)
           next_header = row[i + 1]
           field_name = header.gsub('_type', '')
@@ -94,6 +94,8 @@ module Importer
           update_typed_field(header, val, processed)
         when /^contributor$/
           update_contributor(header, val, processed)
+        when /^digitized$/
+          update_digitized(header, val, processed)
         when /^collection_(.*)$/
           processed[:collection] ||= {}
           update_collection(processed[:collection], Regexp.last_match(1), val)
@@ -114,6 +116,11 @@ module Importer
         key = header.to_sym
         processed[key] ||= []
         processed[key] << { name: [val.strip] }
+      end
+
+      def update_digitized(header, val, processed)
+        key = header.to_sym
+        processed[key] = (val.to_s.downcase == "yes")
       end
 
       def extract_multi_value_field(header, val, processed, key = nil)
