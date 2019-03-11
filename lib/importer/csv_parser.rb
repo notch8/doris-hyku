@@ -69,7 +69,7 @@ module Importer
       end
 
       def attributes(headers, row)
-        {}.tap do |processed|
+        {visibility: Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC}.tap do |processed|
           headers.each_with_index do |header, index|
             extract_field(header, row[index], processed)
           end
