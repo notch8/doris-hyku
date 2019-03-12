@@ -1,3 +1,4 @@
+Hydra::Derivatives.eager_load!
 Hydra::Derivatives::Processors::Image.class_eval do
 
   protected
