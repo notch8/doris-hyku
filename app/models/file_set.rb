@@ -2,12 +2,4 @@
 class FileSet < ActiveFedora::Base
   include ::CommonMetadata
   include ::Hyrax::FileSetBehavior
-
-  after_update :clear_cache
-
-  # clean out RIIF cache when the file changes
-  def clear_cache
-    FileUtils.rm_rf(Rails.root.join('tmp', 'network_files', '*'))
-    FileUtils.rm_rf(Rails.root.join('tmp', 'cache', '*'))
-  end
 end
