@@ -1,7 +1,5 @@
 <% provide :page_title, @presenter.page_title %>
 
-<%= render 'shared/citations' %>
-<%= render './shared/additional_citations' %>
 <div class="row work-type">
   <div class="col-xs-12">
     <%= render 'work_type', presenter: @presenter %>
@@ -22,7 +20,6 @@
           <% end %>
           <div class="col-sm-3 text-center">
             <%= render 'representative_media', presenter: @presenter, viewer: false unless @presenter.universal_viewer? %>
-            <%= render 'citations', presenter: @presenter %>
             <%= render 'social_media' %>
           </div>
           <div class="col-sm-9">
