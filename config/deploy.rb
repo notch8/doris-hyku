@@ -9,7 +9,8 @@ set :repo_url, "https://github.com/notch8/doris-hyku.git"
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/opt/doris-hyku"
-append :linked_files, '.env'  # for capistrano >= 3.5
+
+append :linked_files, '.env', 'config/analytics_secret.pem', 'config/analytics.yml'  # for capistrano >= 3.5
 set :passenger_restart_command, 'PASSENGER_INSTANCE_REGISTRY_DIR="/var/run" /bin/passenger-config restart-app'
 set :passenger_restart_options, -> { "#{deploy_to}/current --ignore-app-not-running --ignore-passenger-not-running" }
 set :passenger_restart_with_sudo, true
