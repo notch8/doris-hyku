@@ -12,6 +12,7 @@ class IngestJob < Hyrax::ApplicationJob
       Rails.logger.debug("Removing File with id:#{file.id}")
       FileUtils.rm_rf(Rails.root.join('tmp', 'network_files', Digest::MD5.hexdigest(file.uri.to_s)))
     end
+    Rails.cache.clear
   end
 
   # @param [JobIoWrapper] wrapper
