@@ -118,3 +118,4 @@ gem 'sentry-raven'
 
 gem 'riiif', '~> 1.1'
 gem 'health-monitor-rails', git: 'https://github.com/notch8/health-monitor-rails.git'
+gem 'whenever'
