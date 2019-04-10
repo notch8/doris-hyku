@@ -18,7 +18,7 @@ module Hyrax
       # hyrax send the mail 'from' the submitter, which doesnt work on most smtp transports
       {
         subject: "#{Hyrax.config.subject_prefix} #{email} #{subject}",
-        to: Hyrax.config.contact_email,
+        to: 'photounit@records.nyc.gov',
         from: Settings.contact_email
       }
     end
