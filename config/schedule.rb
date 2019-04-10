@@ -20,4 +20,6 @@
 # Learn more: http://github.com/javan/whenever
 every 1.day do
   command "cd /opt/doris-hyku/current/ops/Backup && dotenv -f ../../.env 'backup perform --trigger hyku -c ./config.rb'"
+
+  command "cd /opt/doris-hyku/current/tmp && find . -ctime +7 -and -size +1M  -delete"
 end
