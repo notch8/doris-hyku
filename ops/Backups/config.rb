@@ -22,10 +22,16 @@ Backup::Model.new(:hyku, 'Backup the database and files for Hyku') do
     db.port               = ENV['MYSQL_PORT']
   end
 
-  # archive :shared do |archive|
-  #   archive.add "/media/ephemeral0/uploads"
-  #   archive.tar_options '--warning=no-file-changed'
-  # end
+  archive :shared do |archive|
+    archive.add "/opt/doris-hyku/shared"
+    archive.tar_options '--warning=no-file-changed'
+    archive.exclude '/opt/doris-hyku/shared/log'
+    archive.exclude '/opt/doris-hyku/shared/tmp/cache'
+    archive.exclude '/opt/doris-hyku/shared/tmp/network_files'
+    archive.exclude '/opt/doris-hyku/shared/tmp/pids'
+    archive.exclude '/opt/doris-hyku/shared/tmp/sockets'
+    archive.exclude '/opt/doris-hyku/shared/tmp/uploads'
+  end
 
   compress_with Gzip
 
@@ -72,44 +78,19 @@ Backup::Model.new(:hyku, 'Backup the database and files for Hyku') do
     s3.keep               = keep
   end
 
+  notify_by Mail do |mail|
+    mail.on_success           = true
+    mail.on_warning           = true
+    mail.on_failure           = true
 
- sync_with Cloud::S3 do |s3|
-   s3.region             = ENV['AWS_REGION']
-   s3.bucket             = ENV['BACKUP_BUCKET']
-   s3.path               = ''
-   s3.encryption         = :aes256
-   s3.storage_class      = :standard
-   s3.access_key_id      = ENV['AWS_ACCESS_KEY_ID']
-   s3.secret_access_key  = ENV['AWS_SECRET_ACCESS_KEY']
-
-   s3.path              = "/shared"
-   s3.mirror            = true
-   s3.thread_count      = 10
-
-   s3.directories do |directory|
-     directory.add "/opt/doris-hyku/shared"
-
-     # Exclude files/folders.
-     # The pattern may be a shell glob pattern (see `File.fnmatch`) or a Regexp.
-     # All patterns will be applied when traversing each added directory.
-     directory.exclude '**/*~'
-     directory.exclude /\/tmp$/
-   end
- end
-
-#  notify_by Mail do |mail|
-#    mail.on_success           = true
-#    mail.on_warning           = true
-#    mail.on_failure           = true
-#
-#    mail.from                 = 'server@notch8.com'
-#    mail.to                   = 'support@notch8.com' # Hipchat or dev team?
-#    mail.address              = 'smtp.gmail.com'
-#    mail.port                 = 587
-#    mail.domain               = 'notch8.com'
-#    mail.user_name            = 'server@notch8.com'
-#    mail.password             = 'DumbDatabase'
-#    mail.authentication       = 'plain'
-#    mail.encryption           = :starttls
-#  end
+    mail.from                 = 'appdev@records.nyc.gov'
+    mail.to                   = 'appdev@records.nyc.gov'
+    mail.cc                   = 'support@notch8.com'
+    mail.address              = ENV['SMTP_ADDRESS']
+    mail.port                 = ENV['SMTP_PORT']
+    mail.user_name            = ENV['SMTP_USERNAME']
+    mail.password             = ENV['SMTP_PASSWORD']
+    mail.authentication       = 'plain'
+    mail.encryption           = :starttls
+  end
 end
