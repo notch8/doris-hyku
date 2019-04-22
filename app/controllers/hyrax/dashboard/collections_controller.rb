@@ -185,7 +185,7 @@ module Hyrax
       # Renders a JSON response with a list of files in this collection
       # This is used by the edit form to populate the thumbnail_id dropdown
       def files
-        result = form.select_files.map do |label, id|
+        result = form.select_files(params[:q]).map do |label, id|
           { id: id, text: label }
         end
         render json: result

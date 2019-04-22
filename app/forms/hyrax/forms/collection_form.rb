@@ -1,3 +1,6 @@
+## Override select_files to actually searched fields
+## this is cludgy and should actually use search, but at the moment just loads
+## all the available files and then filters in Ruby
 module Hyrax
   module Forms
     # rubocop:disable Metrics/ClassLength
@@ -49,8 +52,14 @@ module Hyrax
       end
 
       # @return [Hash] All FileSets in the collection, file.to_s is the key, file.id is the value
-      def select_files
-        Hash[all_files_with_access]
+      def select_files(query=nil)
+        search = ActiveFedora::SolrService.get("member_of_collection_ids_ssim: #{collection.id}", rows: 1000000, fl: 'id')
+        ids = JSON.parse(search.response[:body])['response']['docs'].map { |doc| doc['id'] }
+        result = member_presenters(ids).flat_map(&:file_set_presenters).map { |x| [x.to_s, x.id] }
+        result.select! do |file, id|
+          file.match(query)
+        end
+        Hash[result]
       end
 
       # Terms that appear above the accordion
