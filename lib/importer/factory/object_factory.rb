@@ -71,6 +71,7 @@ module Importer
       # 2+ years later, still open!
       def create
         attrs = create_attributes
+        attrs[:visibility] = Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PRIVATE if attrs[:remote_files]].blank? && attrs[:uploaded_files].blank?
         @object = klass.new
         run_callbacks :save do
           run_callbacks :create do
