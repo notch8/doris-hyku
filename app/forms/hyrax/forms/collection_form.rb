@@ -59,7 +59,7 @@ module Hyrax
         result.select! do |file, id|
           file.match(query)
         end
-        Hash[result[0..10]]
+        Hash[result[0..30]]
       end
 
       # Terms that appear above the accordion
