@@ -1,4 +1,5 @@
 // Dynamically load the file options into the "Thumbnail" select field.
+// Notch8 override to add data params
 export default class {
   /*
    * @param {String} url the search endpoint
@@ -14,7 +15,7 @@ export default class {
           ajax: { // Use the jQuery.ajax wrapper provided by Select2
               url: url,
               dataType: "json",
-	      data: function (params) {
+      	      data: function (params) {
                 var query = {
                   q: params,
                 }
