@@ -37,6 +37,7 @@ group :development do
   gem "capistrano-passenger", require: false
   gem 'capistrano-dotenv-tasks', require: false
   gem 'pg'
+  gem 'bcrypt_pbkdf', '~> 1.0'
 end
 
 group :development, :test do
