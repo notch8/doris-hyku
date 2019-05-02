@@ -1,3 +1,4 @@
+## adjust params_for_query to search all fields
 module Hyrax
   module Dashboard
     ## Shows a list of all collections to the admins
@@ -457,12 +458,13 @@ module Hyrax
           action_name == 'show' ? Collection.find(collection.id) : collection
         end
 
+        # Overriden from Hyrax to include all_fields
         # You can override this method if you need to provide additional
         # inputs to the search builder. For example:
         #   search_field: 'all_fields'
         # @return <Hash> the inputs required for the collection member search builder
         def params_for_query
-          params.merge(q: params[:cq])
+          params.merge(q: params[:cq], search_field: 'all_fields' )
         end
     end
   end
