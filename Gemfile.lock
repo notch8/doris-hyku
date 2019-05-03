@@ -959,6 +959,7 @@ DEPENDENCIES
   rspec-rails (>= 3.6.0)
   rubocop (~> 0.50, <= 0.52.1)
   rubocop-rspec (~> 1.22, <= 1.22.2)
+  ruby-progressbar
   sass-rails (~> 5.0)
   scss_lint
   secure_headers
