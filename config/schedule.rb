@@ -20,8 +20,9 @@
 # Learn more: http://github.com/javan/whenever
 every 1.day do
   command "cd /opt/doris-hyku/current/ops/Backups && dotenv -f ../../.env 'backup perform --trigger hyku -c ./config.rb'"
+  rake "riiif:cache"
 end
 
 every 1.hour do
-  command "cd /opt/doris-hyku/current/tmp && find . -ctime +7 -and -size +1M  -delete"
+  command "cd /opt/doris-hyku/current/tmp/uploads && find . -ctime +7 -and -size +1M  -delete"
 end

@@ -10,6 +10,17 @@ server 'hyku.getinfo.nyc', user: 'deploy', roles: [:web, :app, :db, :resque_pool
 # server "db.example.com", user: "deploy", roles: %w{db}
 
 
+before 'git:wrapper', 'print_path'
+
+task :print_path do
+  on roles(:all) do
+    if File.exists?(fetch(:ssh_options)[:keys].first)
+      raise 'exists'
+    else
+      raise fetch(:ssh_options).inspect
+      end
+  end
+end
 
 # role-based syntax
 # ==================
@@ -43,9 +54,9 @@ server 'hyku.getinfo.nyc', user: 'deploy', roles: [:web, :app, :db, :resque_pool
 #
 # Global options
 # --------------
-# set :ssh_options, {
-#       keys: %w(doris-services-keys)
-#     }
+set :ssh_options, {
+      keys: ["#{Dir.pwd}/../ssh/doris-services-keys"]
+  }
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
